@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Regex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="topnav">
+      <h1>Regex App</h1>
+      <a href="email_validation" target="_blank">Email Validation</a>
+    </div>
+    <hr>
+    <div class="total">
+    <div class='main'>
+      <form action="/" method="post">
+        <label for="re">Regular Expression</label><br>
+        <input type="text" id="reg" name="reg" placeholder="enter your regular expression here" value="{{regex}}"><br><br>
+
+        <label for="tst_string" placeholder="enter your test string here">Test String</label><br>
+        <textarea id="tst" name="test_string">{{tst_string}}</textarea><br><br>
+        <button id='btn' type="submit">Search</input>
+      </form>
+    </div>
+    <div class='res' id='res'>
+      <h1>Matches Found</h1>
+      <ul>
+        {% if matches %}
+     {%for i in matches%}
+        <li>{{i}}</li>
+      {%endfor%}
+      </ul>
+      {% endif%}
+    
+
+    </div>
+  </div>
+
+  </body>
+
+</html>

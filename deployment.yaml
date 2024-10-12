@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: regex-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: regex-app
+  template:
+    metadata:
+      labels:
+        app: regex-app
+    spec:
+      containers:
+      - name: regex-app
+        image: your-dockerhub-username/regex_app
+        ports:
+        - containerPort: 80
